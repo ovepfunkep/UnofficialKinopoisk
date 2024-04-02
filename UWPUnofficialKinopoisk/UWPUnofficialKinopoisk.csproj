@@ -125,9 +125,10 @@
     </Compile>
     <Compile Include="Helpers\FilmsHelper.cs" />
     <Compile Include="Models\Country.cs" />
-    <Compile Include="Models\Film\Film.cs" />
-    <Compile Include="Models\Film\FilmCollectionsTypesEnum.cs" />
-    <Compile Include="Models\Film\FilmsCollectionResponse.cs" />
+    <Compile Include="Models\Film.cs" />
+    <Compile Include="Models\FilmCollectionsTypesEnum.cs" />
+    <Compile Include="Models\FilmsCollectionResponse.cs" />
+    <Compile Include="Models\FilmTypesEnum.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Services\APIService.cs" />
     <Compile Include="ViewModels\FilmsCollectionViewModel.cs" />

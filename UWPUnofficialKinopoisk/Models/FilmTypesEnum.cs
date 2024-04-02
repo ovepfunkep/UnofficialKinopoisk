@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace UWPUnofficialKinopoisk.Models
 {
-    public class Genre
+    public enum FilmTypesEnum
     {
-        public string genre { get; set; }
+        FILM,
+        SERIES
     }
 }

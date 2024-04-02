@@ -9,7 +9,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace UWPUnofficialKinopoisk.Models
 {
-    public class Film : ObservableObject
+    public class Film
     {
         public int KinopoiskId { get; set; }
         public string KinopoiskHDId { get; set; }
