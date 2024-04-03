@@ -4,25 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using UWPUnofficialKinopoisk.Models;
+using UWPUnofficialKinopoisk.ViewModels;
+using UWPUnofficialKinopoisk.Views;
+
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
+using static UWPUnofficialKinopoisk.Helpers.FilmsHelper;
 
 namespace UWPUnofficialKinopoisk.ControlModels
 {
     public class FilmControlModel
     {
-        public int KinopoiskId { get; set; }
-        public string ImageURL { get; set; }
-        public string FilmName { get; set; }
-        public string FilmInfo { get; set; }
-
-        public FilmControlModel(int kinopoiskId,
-                                string imageURL, 
-                                string filmName, 
-                                string filmInfo)
+        private Film _film;
+        public Film Film 
         {
-            KinopoiskId = kinopoiskId;
-            ImageURL = imageURL;
-            FilmName = filmName;
-            FilmInfo = filmInfo;
+            get => _film;
+            set
+            {
+                _film = value;
+                FilmInfo = GetInfo(value);
+            }
+        }
+        public string FilmInfo { get; private set; }
+
+        public FilmControlModel(Film film)
+        {
+            Film = film;
+        }
+
+        public void SwitchToDetailed()
+        {
+            (Application.Current as App).NavigateTo(typeof(FilmDetailedPage), Film.KinopoiskId);
         }
     }
 }

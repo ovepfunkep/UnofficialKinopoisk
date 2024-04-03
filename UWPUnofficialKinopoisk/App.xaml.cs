@@ -97,5 +97,11 @@ namespace UWPUnofficialKinopoisk
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        public void NavigateTo(Type controlType, object parameter = null)
+        {
+            var frame = Window.Current.Content as Frame;
+            frame.Navigate(controlType, parameter);
+        }
     }
 }

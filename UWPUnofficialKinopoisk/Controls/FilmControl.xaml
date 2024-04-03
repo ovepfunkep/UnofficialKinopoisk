@@ -6,21 +6,30 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    x:Name="thisUserControl"
     Height="500"
     Width="300">
-    <Grid Padding="20, 20, 20, 10">
+    <Grid Padding="20, 20, 20, 0" Tapped="Grid_Tapped" DataContext="{Binding Film}">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding ImageURL}" Grid.Row="0" VerticalAlignment="Bottom"/>
+        <Image Source="{Binding PosterUrl}" Grid.Row="0" VerticalAlignment="Bottom"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding FilmName}" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="30"/>
-            <TextBlock Text="{Binding FilmInfo}" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
+            <TextBlock Text="{Binding NameRu}" 
+                       Margin="0,5,0,5"
+                       Grid.Row="0" 
+                       FontSize="22" 
+                       HorizontalAlignment="Center" 
+                       TextWrapping="WrapWholeWords" 
+                       TextAlignment="Center" 
+                       LineStackingStrategy="BlockLineHeight" 
+                       LineHeight="30"/>
+            <TextBlock Text="{Binding ElementName=thisUserControl, Path=DataContext.FilmInfo}" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
         </Grid>
     </Grid>
 </UserControl>

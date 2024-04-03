@@ -29,10 +29,7 @@ namespace UWPUnofficialKinopoisk.ViewModels
             {
                 var films = await GetFilmsAsync(type, page);
 
-                var filmsList = films.Select(f => new FilmControlModel(f.KinopoiskId,
-                                                                      f.PosterUrl,
-                                                                      f.NameRu,
-                                                                      GetInfo(f)));
+                var filmsList = films.Select(f => new FilmControlModel(f));
 
                 FilmsList.Clear();
                 filmsList.ToList().ForEach(f => FilmsList.Add(f));

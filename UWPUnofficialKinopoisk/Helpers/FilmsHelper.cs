@@ -20,7 +20,7 @@ namespace UWPUnofficialKinopoisk.Helpers
                 if (film.FilmLength != null)
                 {
                     if (film.Year != null) sb.Append(", ");
-                    sb.Append($"{film.FilmLength} min.");
+                    sb.Append($"{film.FilmLength} мин.");
                 }
             }
             else
@@ -43,7 +43,7 @@ namespace UWPUnofficialKinopoisk.Helpers
             else if (film.RatingKinopoisk != null)
             {
                 if (sb.Length > 0) sb.Append(", ");
-                sb.Append($"our rating: {film.RatingKinopoisk}");
+                sb.Append($"кинорейтинг: {film.RatingKinopoisk}");
             }
 
             if (film.Genres.Count > 0)
