@@ -1,0 +1,32 @@
+﻿<Page
+    x:Class="UWPUnofficialKinopoisk.FilmsCollectionPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPUnofficialKinopoisk"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userControls="using:UWPUnofficialKinopoisk.Controls"
+    xmlns:toolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d">
+    <Grid>
+        <ScrollViewer Background="#FF171717" Grid.Column="0">
+            <ListBox ItemsSource="{Binding FilmsList}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <toolkitControls:WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <userControls:FilmControl DataContext="{Binding}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </ScrollViewer>
+    </Grid>
+</Page>
