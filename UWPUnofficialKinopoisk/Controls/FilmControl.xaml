@@ -5,20 +5,22 @@
     xmlns:local="using:UWPUnofficialKinopoisk.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-    <Grid Padding="10">
+    mc:Ignorable="d"
+    Height="500"
+    Width="300">
+    <Grid Padding="20, 20, 20, 10">
         <Grid.RowDefinitions>
-            <RowDefinition Height=".5*"/>
-            <RowDefinition Height=".2*"/>
-            <RowDefinition/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".5*"/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <Image Source="{Binding ImageURL}" Grid.Column="0" Grid.RowSpan="4"/>
-        <TextBlock Text="{Binding FilmName}" Grid.Row="0" Grid.Column="1"/>
-        <TextBlock Text="{Binding FilmInfo}" Grid.Row="1" Grid.Column="1"/>
-        <TextBlock Text="{Binding Description}" Grid.Row="3" Grid.Column="1"/>
+        <Image Source="{Binding ImageURL}" Grid.Row="0" VerticalAlignment="Bottom"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding FilmName}" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="30"/>
+            <TextBlock Text="{Binding FilmInfo}" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
+        </Grid>
     </Grid>
 </UserControl>

@@ -35,7 +35,7 @@ namespace UWPUnofficialKinopoisk.Services
                     var filmsResponse = JsonConvert.DeserializeObject<FilmsCollectionResponse>(jsonString);
                     return filmsResponse.Items;
                 }
-                else throw new Exception("Failed to retrieve popular films.");
+                else throw new Exception("Failed to retrieve films.");
             }
         }
     }
