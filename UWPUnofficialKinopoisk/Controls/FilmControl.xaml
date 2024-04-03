@@ -8,18 +8,18 @@
     mc:Ignorable="d"
     Height="500"
     Width="300">
-    <Grid Padding="20, 20, 20, 10">
+    <Grid Padding="20, 20, 20, 10" Tapped="Grid_Tapped">
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Source="{Binding ImageURL}" Grid.Row="0" VerticalAlignment="Bottom"/>
+        <Image Source="{Binding Film.PosterUrl}" Grid.Row="0" VerticalAlignment="Bottom"/>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding FilmName}" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="30"/>
+            <TextBlock Text="{Binding Film.NameRu}" Grid.Row="0" FontSize="24" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center" LineStackingStrategy="BlockLineHeight" LineHeight="30"/>
             <TextBlock Text="{Binding FilmInfo}" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
         </Grid>
     </Grid>

@@ -10,6 +10,8 @@ using Newtonsoft.Json;
 
 using UWPUnofficialKinopoisk.Models;
 
+using Windows.UI.Xaml.Controls;
+
 namespace UWPUnofficialKinopoisk.Services
 {
     public static class APIService
@@ -20,20 +22,30 @@ namespace UWPUnofficialKinopoisk.Services
 
         public static async Task<List<Film>> GetFilmsAsync(FilmCollectionsTypesEnum type = FilmCollectionsTypesEnum.TOP_POPULAR_ALL, uint page = 1)
         {
+            string url = $"{ApiBaseUrl}{ApiFilmsSubUrl}collections?type={type}&page={page}";
+            return (await GetAsync<FilmsCollectionResponse>(url)).Items;
+        }
+
+        public static async Task<Film> GetFilmAsync(int kinopoiskID)
+        {
+            string url = ApiBaseUrl + ApiFilmsSubUrl + kinopoiskID;
+            return await GetAsync<Film>(url);
+        }
+
+        private static async Task<T> GetAsync<T>(string url)
+        {
             using (var client = new HttpClient())
             {
                 client.DefaultRequestHeaders.Add("X-API-KEY", ApiKey);
                 client.DefaultRequestHeaders.Add("accept", "application/json");
-
-                string url = $"{ApiBaseUrl}{ApiFilmsSubUrl}collections?type={type}&page={page}";
 
                 var response = await client.GetAsync(url);
 
                 if (response.IsSuccessStatusCode)
                 {
                     var jsonString = await response.Content.ReadAsStringAsync();
-                    var filmsResponse = JsonConvert.DeserializeObject<FilmsCollectionResponse>(jsonString);
-                    return filmsResponse.Items;
+                    var filmsResponse = JsonConvert.DeserializeObject<T>(jsonString);
+                    return filmsResponse;
                 }
                 else throw new Exception("Failed to retrieve films.");
             }

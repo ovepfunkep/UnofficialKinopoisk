@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
 using UWPUnofficialKinopoisk.ControlModels;
+using UWPUnofficialKinopoisk.Views;
 
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -25,6 +26,12 @@ namespace UWPUnofficialKinopoisk.Controls
         public FilmControl()
         {
             this.InitializeComponent();
+        }
+
+        private void Grid_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var viewModel = DataContext as FilmControlModel;
+            viewModel.SwitchToDetailed();
         }
     }
 }
