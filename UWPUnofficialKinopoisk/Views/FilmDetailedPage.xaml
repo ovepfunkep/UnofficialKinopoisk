@@ -42,10 +42,16 @@
                    Grid.Column="0" 
                    Grid.Row="0"
                    Margin="0, 0, 20, 0"
-                   HorizontalAlignment="Left"/>
+                   HorizontalAlignment="Right"/>
             <TextBlock Text="{Binding NameRu}" Grid.Column="1" Grid.Row="0" FontSize="40" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding NameOriginal}" Grid.Column="1" Grid.Row="1" FontSize="30" Foreground="#FF555555"/>
-            <TextBlock Text="{Binding ElementName=thisPage, Path=DataContext.FilmInfo}" Grid.Column="1" Grid.Row="2" FontSize="20" Margin="0, 10" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding ElementName=thisPage, Path=DataContext.FilmInfo}" 
+                       Grid.Column="1" 
+                       Grid.Row="2" 
+                       FontSize="20" 
+                       Margin="0, 10" 
+                       TextWrapping="Wrap" 
+                       FontWeight="SemiBold"/>
             <TextBlock Text="{Binding Description}" Grid.Column="1" Grid.Row="3" FontSize="20" VerticalAlignment="Top" TextWrapping="Wrap" Margin="0,20,0,0"/>
             <Button Background="{Binding IsFavorite, Converter={StaticResource BoolToColorConverter}}" 
                     Content="Избранное" 

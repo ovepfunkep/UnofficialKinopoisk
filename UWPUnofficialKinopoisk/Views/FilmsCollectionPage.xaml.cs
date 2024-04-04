@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
+using UWPUnofficialKinopoisk.Parameters;
 using UWPUnofficialKinopoisk.ViewModels;
 
 using Windows.Foundation;
@@ -28,8 +29,15 @@ namespace UWPUnofficialKinopoisk.Views
     {
         public FilmsCollectionPage()
         {
-            InitializeComponent();
             DataContext = new FilmsCollectionViewModel();
+            InitializeComponent();
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var parameters = (FilmsCollectionPageParameters)e.Parameter;
+            if (parameters != null) ((FilmsCollectionViewModel)DataContext).ShowOnlyFavorites = parameters.ShowOnlyFavorite;
+            base.OnNavigatedTo(e);
         }
     }
 }

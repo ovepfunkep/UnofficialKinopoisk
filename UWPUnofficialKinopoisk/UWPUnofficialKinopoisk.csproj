@@ -132,13 +132,11 @@
     <Compile Include="Models\FilmsCollectionResponse.cs" />
     <Compile Include="Models\FilmTypesEnum.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Parameters\FilmsCollectionPageParameters.cs" />
     <Compile Include="Repositories\FavoriteFilmsRepository.cs" />
     <Compile Include="Services\APIService.cs" />
     <Compile Include="ViewModels\FilmDetailedViewModel.cs" />
     <Compile Include="ViewModels\FilmsCollectionViewModel.cs" />
-    <Compile Include="Views\FavoriteFilmsPage.xaml.cs">
-      <DependentUpon>FavoriteFilmsPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\FilmDetailedPage.xaml.cs">
       <DependentUpon>FilmDetailedPage.xaml</DependentUpon>
     </Compile>
@@ -174,15 +172,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Styles\ToggleButtonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\FontStyles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\GridStyles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\FavoriteFilmsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
+using UWPUnofficialKinopoisk.Parameters;
+
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -37,7 +39,8 @@ namespace UWPUnofficialKinopoisk.Views
                 Type pageType = Type.GetType(invokedItem.Tag.ToString());
                 if (pageType != null)
                 {
-                    ContentFrame.Navigate(pageType);
+                    object parameter = null;
+                    ContentFrame.Navigate(pageType, parameter);
                 }
             }
         }

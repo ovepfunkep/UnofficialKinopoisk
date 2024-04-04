@@ -9,8 +9,26 @@
     xmlns:toolkitControls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
     <Grid>
-        <ScrollViewer Background="#FF171717" Grid.Column="0">
-            <ListBox ItemsSource="{Binding FilmsList}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ToggleButton x:Name="tButton"
+                IsChecked="{Binding ShowOnlyFavorites, Mode=TwoWay}" 
+                          Content="Избранные"
+                          Grid.Column="0" 
+                          HorizontalAlignment="Right" 
+                          Height="30"
+                          Width="100"/>
+            <Button Command="{Binding ApplyFiltersCommand}" FontWeight="Bold" Content="Применить" Grid.Column="1" Margin="20, 0"/>
+        </Grid>
+        <ScrollViewer Background="#FF171717" Grid.Column="0" Grid.Row="1">
+            <ListBox ItemsSource="{Binding FilteredFilmsList}">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>
                         <toolkitControls:WrapPanel Orientation="Horizontal" HorizontalAlignment="Center"/>
