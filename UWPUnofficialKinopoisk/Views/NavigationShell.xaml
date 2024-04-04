@@ -5,9 +5,12 @@
     xmlns:local="using:UWPUnofficialKinopoisk.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <NavigationView>
-        
+    mc:Ignorable="d">
+    <NavigationView x:Name="NavigationView" PaneDisplayMode="Top" ItemInvoked="NavigationView_ItemInvoked" IsSettingsVisible="False">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Content="Films" Tag="UWPUnofficialKinopoisk.Views.FilmsCollectionPage"/>
+            <NavigationViewItem Content="Favorite" Tag="UWPUnofficialKinopoisk.Views.FavoriteFilmsPage"/>
+        </NavigationView.MenuItems>
+        <Frame x:Name="ContentFrame"/>
     </NavigationView>
 </Page>

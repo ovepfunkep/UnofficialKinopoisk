@@ -136,6 +136,9 @@
     <Compile Include="Services\APIService.cs" />
     <Compile Include="ViewModels\FilmDetailedViewModel.cs" />
     <Compile Include="ViewModels\FilmsCollectionViewModel.cs" />
+    <Compile Include="Views\FavoriteFilmsPage.xaml.cs">
+      <DependentUpon>FavoriteFilmsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FilmDetailedPage.xaml.cs">
       <DependentUpon>FilmDetailedPage.xaml</DependentUpon>
     </Compile>
@@ -176,6 +179,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\GridStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FavoriteFilmsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

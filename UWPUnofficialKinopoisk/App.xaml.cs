@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 
-using UWPUnofficialKinopoisk.Models;
+using UWPUnofficialKinopoisk.Views;
 
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -70,7 +70,7 @@ namespace UWPUnofficialKinopoisk
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(FilmsCollectionPage), e.Arguments);
+                    rootFrame.Navigate(typeof(NavigationShell), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

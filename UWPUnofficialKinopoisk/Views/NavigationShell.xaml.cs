@@ -26,6 +26,27 @@ namespace UWPUnofficialKinopoisk.Views
         public NavigationShell()
         {
             this.InitializeComponent();
+            ContentFrame.Navigate(typeof(FilmsCollectionPage));
+        }
+
+        private void NavigationView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            var invokedItem = args.InvokedItemContainer as NavigationViewItem;
+            if (invokedItem != null)
+            {
+                Type pageType = Type.GetType(invokedItem.Tag.ToString());
+                if (pageType != null)
+                {
+                    ContentFrame.Navigate(pageType);
+                }
+            }
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            NavigationView.SelectedItem = NavigationView.MenuItems[0];
         }
     }
 }
