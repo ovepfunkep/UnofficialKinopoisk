@@ -11,6 +11,7 @@ using static UWPUnofficialKinopoisk.Services.APIService;
 using Windows.UI.Xaml.Controls;
 using UWPUnofficialKinopoisk.ControlModels;
 using static UWPUnofficialKinopoisk.Helpers.FilmsHelper;
+using UWPUnofficialKinopoisk.Repositories;
 
 namespace UWPUnofficialKinopoisk.ViewModels
 {
@@ -28,6 +29,7 @@ namespace UWPUnofficialKinopoisk.ViewModels
             try
             {
                 var films = await GetFilmsAsync(type, page);
+                films.ApplyFavoriteFilmsIDs();
 
                 var filmsList = films.Select(f => new FilmControlModel(f));
 

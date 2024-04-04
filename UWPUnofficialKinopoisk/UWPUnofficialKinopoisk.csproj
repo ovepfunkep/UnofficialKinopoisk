@@ -119,10 +119,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\FavoritesCommands.cs" />
     <Compile Include="ControlModels\FilmControlModel.cs" />
     <Compile Include="Controls\FilmControl.xaml.cs">
       <DependentUpon>FilmControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BoolToColorConverter.cs" />
     <Compile Include="Helpers\FilmsHelper.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Film.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Models\FilmsCollectionResponse.cs" />
     <Compile Include="Models\FilmTypesEnum.cs" />
     <Compile Include="Models\Genre.cs" />
+    <Compile Include="Repositories\FavoriteFilmsRepository.cs" />
     <Compile Include="Services\APIService.cs" />
     <Compile Include="ViewModels\FilmDetailedViewModel.cs" />
     <Compile Include="ViewModels\FilmsCollectionViewModel.cs" />

@@ -5,22 +5,29 @@
     xmlns:local="using:UWPUnofficialKinopoisk.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:UWPUnofficialKinopoisk.Converters"
+    xmlns:commands="using:UWPUnofficialKinopoisk.Commands"
     mc:Ignorable="d"
     x:Name="thisUserControl"
     Height="500"
     Width="300">
-    <Grid Padding="20, 20, 20, 0" Tapped="Grid_Tapped" DataContext="{Binding Film}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="4*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <Image Source="{Binding PosterUrl}" Grid.Row="0" VerticalAlignment="Bottom"/>
-        <Grid Grid.Row="1">
+    <UserControl.Resources>
+        <converters:BoolToColorConverter x:Key="BoolToColorConverter"/>
+        <commands:FavoritesCommands x:Key="FavoritesCommands"/>
+    </UserControl.Resources>
+    <Grid DataContext="{Binding Film}">
+        <Grid Padding="20, 20, 20, 0" Tapped="Grid_Tapped">
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <TextBlock Text="{Binding NameRu}" 
+            <Image Source="{Binding PosterUrl}" Grid.Row="0" VerticalAlignment="Bottom"/>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding NameRu}" 
                        Margin="0,5,0,5"
                        Grid.Row="0" 
                        FontSize="22" 
@@ -29,7 +36,16 @@
                        TextAlignment="Center" 
                        LineStackingStrategy="BlockLineHeight" 
                        LineHeight="30"/>
-            <TextBlock Text="{Binding ElementName=thisUserControl, Path=DataContext.FilmInfo}" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
+                <TextBlock Text="{Binding ElementName=thisUserControl, Path=DataContext.FilmInfo}" Grid.Row="1" HorizontalAlignment="Center" TextWrapping="WrapWholeWords" TextAlignment="Center"/>
+            </Grid>
         </Grid>
+        <Button Background="{Binding IsFavorite, Converter={StaticResource BoolToColorConverter}}" 
+                Content="Избранное" 
+                FontSize="10"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Right"
+                Command="{Binding Source={StaticResource FavoritesCommands}, Path=AddToFavoritesCommand}"
+                CommandParameter="{Binding}"
+                Padding="10"/>
     </Grid>
 </UserControl>

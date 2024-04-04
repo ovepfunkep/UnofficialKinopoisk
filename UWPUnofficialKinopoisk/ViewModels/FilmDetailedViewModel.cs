@@ -14,6 +14,7 @@ using UWPUnofficialKinopoisk.Services;
 using Windows.UI.Xaml;
 
 using static UWPUnofficialKinopoisk.Helpers.FilmsHelper;
+using static UWPUnofficialKinopoisk.Repositories.FavoriteFilmsRepository;
 
 namespace UWPUnofficialKinopoisk.ViewModels
 {
@@ -48,7 +49,9 @@ namespace UWPUnofficialKinopoisk.ViewModels
 
         private async void LoadFilmAsync(int kinopoiskID)
         {
-            Film = await APIService.GetFilmAsync(kinopoiskID);
+            var film = await APIService.GetFilmAsync(kinopoiskID);
+            film.IsFavorite = GetAllFavoriteFilmsIDs().Any(fID => fID == film.KinopoiskId);
+            Film = film;
         }
 
         private void MoveToPreviousPage()

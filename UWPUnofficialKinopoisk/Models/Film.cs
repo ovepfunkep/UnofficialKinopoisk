@@ -9,7 +9,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 
 namespace UWPUnofficialKinopoisk.Models
 {
-    public class Film
+    public class Film : ObservableObject
     {
         public int KinopoiskId { get; set; }
         public string KinopoiskHDId { get; set; }
@@ -56,5 +56,11 @@ namespace UWPUnofficialKinopoisk.Models
         public bool? Serial { get; set; }
         public bool? ShortFilm { get; set; }
         public bool? Completed { get; set; }
+        private bool _isFavorite;
+        public bool? IsFavorite
+        {
+            get => _isFavorite;
+            set => SetProperty(ref _isFavorite, value ?? false);
+        }
     }
 }
