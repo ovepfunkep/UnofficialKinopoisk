@@ -12,6 +12,7 @@ using UWPUnofficialKinopoisk.Models;
 using UWPUnofficialKinopoisk.Services;
 
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 using static UWPUnofficialKinopoisk.Helpers.FilmsHelper;
 using static UWPUnofficialKinopoisk.Repositories.FavoriteFilmsRepository;
@@ -37,13 +38,11 @@ namespace UWPUnofficialKinopoisk.ViewModels
             set => SetProperty(ref _filmInfo, value);
         }
 
-        private readonly Type PrevPage;
         public ICommand GoBackCommand { get; }
 
-        public FilmDetailedViewModel(int kinopoiskID, Type previousControlType = null) 
+        public FilmDetailedViewModel(int kinopoiskID) 
         {
             LoadFilmAsync(kinopoiskID);
-            PrevPage = previousControlType ?? typeof(FilmsCollectionPage);
             GoBackCommand = new RelayCommand(MoveToPreviousPage);
         }
 
@@ -56,7 +55,8 @@ namespace UWPUnofficialKinopoisk.ViewModels
 
         private void MoveToPreviousPage()
         {
-            ((App)Application.Current).NavigateTo(PrevPage);
+            var frame = Window.Current.Content as Frame;
+            frame.GoBack();
         }
     }
 }

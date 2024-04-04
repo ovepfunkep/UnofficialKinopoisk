@@ -36,7 +36,8 @@ namespace UWPUnofficialKinopoisk.ControlModels
 
         public void SwitchToDetailed()
         {
-            (Application.Current as App).NavigateTo(typeof(FilmDetailedPage), Film.KinopoiskId);
+            var frame = Window.Current.Content as Frame;
+            frame.Navigate(typeof(FilmDetailedPage), Film.KinopoiskId);
         }
     }
 }
