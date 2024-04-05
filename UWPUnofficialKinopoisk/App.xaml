@@ -8,6 +8,7 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/GridStyles.xaml"/>
                 <ResourceDictionary Source="Styles/FontStyles.xaml"/>
+                <ResourceDictionary Source="Styles/ToggleButtonStyles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

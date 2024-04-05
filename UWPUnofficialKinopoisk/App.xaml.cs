@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+
+using UWPUnofficialKinopoisk.Views;
+
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
@@ -67,7 +70,7 @@ namespace UWPUnofficialKinopoisk
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    rootFrame.Navigate(typeof(FilmsCollectionPage), e.Arguments);
+                    rootFrame.Navigate(typeof(NavigationShell), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
@@ -96,12 +99,6 @@ namespace UWPUnofficialKinopoisk
             var deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
-        }
-
-        public void NavigateTo(Type controlType, object parameter = null)
-        {
-            var frame = Window.Current.Content as Frame;
-            frame.Navigate(controlType, parameter);
         }
     }
 }
