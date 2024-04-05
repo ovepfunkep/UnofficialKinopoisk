@@ -125,6 +125,7 @@
       <DependentUpon>FilmControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\BoolToColorConverter.cs" />
+    <Compile Include="Converters\UshortToYearStringConverter.cs" />
     <Compile Include="Helpers\FilmsHelper.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Film.cs" />
